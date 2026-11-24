@@ -773,7 +773,55 @@ tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>select(tab.dataset.panel
 .journey-axis-y{position:absolute;left:4px;top:49%;font-size:10px;line-height:1;font-weight:800;letter-spacing:.09em;color:#526e5b;writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);pointer-events:none}
 .journey-axis-x{position:absolute;bottom:2px;right:12px;font-size:10px;line-height:1;font-weight:800;letter-spacing:.1em;color:#526e5b;pointer-events:none}
 .journey-qualifier{margin:8px 0 4px;color:#647366;font-size:11px;line-height:1.45}
-.journey-slider-row input[type=range]{touch-action:auto!important;min-height:42px;height:42px;cursor:pointer;overscroll-behavior:contain;appearance:auto;-webkit-appearance:auto}
-.journey-slider-row input[type=range]::-webkit-slider-thumb{cursor:grab}
+.journey-slider-row input[type=range]{
+  --slider-colour:#385846;
+  touch-action:auto!important;
+  min-height:42px;
+  height:42px;
+  cursor:pointer;
+  overscroll-behavior:contain;
+  appearance:none;
+  -webkit-appearance:none;
+  background:transparent;
+}
+.journey-slider-row input[type=range]::-webkit-slider-runnable-track{
+  height:4px;
+  border-radius:2px;
+  background:var(--slider-colour);
+}
+.journey-slider-row input[type=range]::-webkit-slider-thumb{
+  appearance:none;
+  -webkit-appearance:none;
+  width:32px;
+  height:22px;
+  margin-top:-9px;
+  border:2px solid var(--slider-colour);
+  border-radius:11px;
+  background:var(--slider-colour);
+  cursor:grab;
+}
+.journey-slider-row input[type=range]::-moz-range-track{
+  height:4px;
+  border-radius:2px;
+  background:var(--slider-colour);
+}
+.journey-slider-row input[type=range]::-moz-range-progress{
+  height:4px;
+  background:var(--slider-colour);
+}
+.journey-slider-row input[type=range]::-moz-range-thumb{
+  box-sizing:border-box;
+  width:32px;
+  height:22px;
+  border:2px solid var(--slider-colour);
+  border-radius:11px;
+  background:var(--slider-colour);
+  cursor:grab;
+}
+.journey-slider-row input[type=range]:focus-visible{
+  outline:2px solid var(--slider-colour);
+  outline-offset:3px;
+  border-radius:4px;
+}
 @media(max-width:650px){.journey-visual svg{height:200px}.journey-visual{padding-left:23px;padding-bottom:14px}.journey-axis-x{right:6px}}
 </style>
